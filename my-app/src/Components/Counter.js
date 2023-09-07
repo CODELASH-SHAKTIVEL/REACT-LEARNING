@@ -1,24 +1,26 @@
-import {useState} from "react"
+import { useState } from "react";
 
 function Counter(){
-    const [number , setNumber] = useState(0);
-     function handlerClick (e){
+    console.log('render Counter')
+    const [number, setNumber] = useState(0);
+
+    function handleClick(e){
         e.stopPropagation();
-        // setTimeout(() => {
-        //     setNumber(number + 1);
-        //     console.log(number);
-        // }, 2000);
-        setTimeout(() => {
-            setNumber(number => number + 1); // continously click UI = > correct count but console only 4 click on 0 
-            console.log(number);
-        }, 2000);
+       
+       setNumber(number=>number+1);
+       setNumber(number=>number+1);
+       setNumber(number=>number+1);
+        
+        console.log(number)
     }
+
     return(
         <>
         <h1 style={{color:'white'}}>{number}</h1>
-        <button style={{color:"black"}}onClick={handlerClick}>ADD</button>
+        <button onClick={handleClick}>Add</button>
         </>
     )
+
 }
 
 export default Counter;

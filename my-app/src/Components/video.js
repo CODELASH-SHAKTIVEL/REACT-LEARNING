@@ -1,11 +1,12 @@
 import './Video.css';
 
-function Video({title,id,channel="Coder Dost",views,time,verified}) {
-   
-  
+function Video({title,id,channel="Coder Dost",views,time,verified,deleteVideo,editVideo}) {
+  console.log('render Video')
   return (
       <>
       <div className='container'>
+      <button className='close' onClick={()=>deleteVideo(id)}>X</button>  
+      <button className='edit' onClick={()=>editVideo(id)}>Edit</button>  
       <div className="pic">
       <img src={`https://picsum.photos/id/${id}/160/90`} alt="Katherine Johnson" />
       </div>
@@ -20,5 +21,8 @@ function Video({title,id,channel="Coder Dost",views,time,verified}) {
 }
 
 export default Video;
+
+
+
 
 

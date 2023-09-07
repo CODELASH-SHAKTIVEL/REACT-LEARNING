@@ -1,19 +1,24 @@
-import './PlayButton.css'
+import './PlayButton.css';
+import { useState } from 'react';
 
-// u can send the function as parameter also
-function Button(){
-  
-   function EventHandler(onClick){
-    return(
-     onClick()
-    );
-   }
-   
+function PlayButton({message,children,onPlay,onPause}){
+    console.log('render PlayButton')
+
+    const [playing, setPlaying] = useState(false);  
+    function handleClick(e){
+        // console.log(e)
+        e.stopPropagation()
+
+        if(playing) onPause()
+        else onPlay();
+
+        setPlaying(!playing);
+    }
+
     return (
-     <>
-     <button  className="Button" onClick={EventHandler}>message</button>
-     </>
-    );
+        <button onClick={handleClick}>{children} : {playing?'⏸️':'⏯️'}</button>
+    )
+
 }
 
-export default Button;
+export default PlayButton;

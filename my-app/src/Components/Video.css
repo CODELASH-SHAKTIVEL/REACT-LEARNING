@@ -4,6 +4,7 @@
 }
 
 .container{
+  position: relative;
     width:15em;
     margin: 0 0.2em;
     float: left;
@@ -24,4 +25,9 @@
   
   .views span{
     padding: 0 0.5em;
+  }
+  .close{
+    color: black;
+    background-color: beige;
+    position: relative;
   }
