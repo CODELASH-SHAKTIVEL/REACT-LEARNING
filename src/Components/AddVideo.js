@@ -19,10 +19,9 @@ function AddVideo({addVideos,updateVideo,editableVideo}) {
     }else{
       addVideos(video)
     }
-    
     setVideo(initialState)
-
   }
+  
   function handleChange(e) {
     setVideo({...video,
         [e.target.name] : e.target.value
