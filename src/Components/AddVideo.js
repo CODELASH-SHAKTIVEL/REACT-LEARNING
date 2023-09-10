@@ -1,5 +1,5 @@
 import './AddVideo.css';
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 const initialState = {
     time: '1 month ago',
@@ -11,6 +11,7 @@ const initialState = {
 
 function AddVideo({addVideos,updateVideo,editableVideo}) {
   const [video, setVideo] = useState(initialState);
+  const inputRef = useRef(null)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -32,11 +33,19 @@ function AddVideo({addVideos,updateVideo,editableVideo}) {
     if(editableVideo){
       setVideo(editableVideo)
     }
+    inputRef.current.focus();
+    inputRef.current.placeholder = " "
+    "type here".split('').forEach((char,i)=>{
+      setTimeout(() => {
+        inputRef.current.placeholder = inputRef.current.placeholder+char;
+      },200*i); 
+    })
   },[editableVideo])
 
   return (
     <form>
       <input
+       ref={inputRef} // binding of useref
         type="text"
         name="title"
         onChange={handleChange}

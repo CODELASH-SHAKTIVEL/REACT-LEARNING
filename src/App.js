@@ -5,6 +5,7 @@ import videoDB from './data/Data';
 // import VideoList from './components/Videolisted.js';
 import VideoList from './Components/Videolist'
 import Video from './Components/video';
+import Counter from './Components/Counter'
 function App() {
   console.log('render App')
 
@@ -67,10 +68,9 @@ function videoReducer( videos , action){
 
   return (
     <div className="App" onClick={()=>console.log('App')}>
+      <Counter></Counter>
        <AddVideo addVideos={addVideos} updateVideo={updateVideo} editableVideo={editableVideo}></AddVideo>
        <VideoList deleteVideo={deleteVideo} editVideo={editVideo}  videos={videos}></VideoList>
-
-
     </div>
   );
 }
